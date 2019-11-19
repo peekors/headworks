@@ -9,7 +9,7 @@ const Clients = props => {
     <section className="mt-5">
       <div className="container">
         <div className="row">
-          <div className="col-sm-8 offset-sm-2">
+          <div className="col-lg-8 offset-lg-2">
             <h2>Clients List</h2>
             <table className="table table-hover">
               <thead>
