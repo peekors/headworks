@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Client from '../client/Client';
 import { connect } from 'react-redux';
 import { getClients } from '../../_reducers/reducers';
@@ -30,10 +29,6 @@ const Clients = props => {
       </div>
     </section>
   );
-};
-
-Clients.propTypes = {
-  
 };
 
 function mapStateToProps(state) {

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { registerClient } from '../../_actions/actions';
 import { getDate } from '../../_helpers/helperFunctions';
@@ -30,13 +29,14 @@ class Signup extends Component {
   }
 
   handleChange(evt) {
-    const value = evt.target.value;
-    console.log(evt.target.value)
+    const {name, value: value1} = evt.target;
+    const value = value1;
+    console.log(value1);
     this.setState({
       ...this.state,
       client: {
         ...this.state.client,
-        [evt.target.name]: value,
+        [name]: value,
       }
     })
   }
@@ -44,10 +44,11 @@ class Signup extends Component {
   handleSubmit(evt) {
     evt.preventDefault();
 
+    const {client} = this.state;
     this.setState({
         ...this.state,
         client: {
-          ...this.state.client,
+          ...client,
           date: getDate()
         },
       },
@@ -88,6 +89,8 @@ class Signup extends Component {
   }
 
   render() {
+    const {loyalty, creditCard, gender, lastName, firstName} = this.state.client;
+    const {messageVisible, message} = this.state.validation;
     return (
       <section className="jumbotron">
         <div className="container">
@@ -104,7 +107,7 @@ class Signup extends Component {
                     placeholder="Johny"
                     name="firstName"
                     id="client-name"
-                    value={this.state.client.firstName}
+                    value={firstName}
                     onChange={this.handleChange}
                     pattern=".{2,15}"
                     required
@@ -118,7 +121,7 @@ class Signup extends Component {
                     placeholder="Walker"
                     name="lastName"
                     id="client-surname"
-                    value={this.state.client.lastName}
+                    value={lastName}
                     onChange={this.handleChange}
                     pattern=".{2,15}"
                     required
@@ -131,7 +134,7 @@ class Signup extends Component {
                     id="client-gender"
                     name="gender"
                     onChange={this.handleChange}
-                    value={this.state.client.gender}
+                    value={gender}
                     required
                   >
                     <option value="Male">Male</option>
@@ -145,14 +148,14 @@ class Signup extends Component {
                     id="client-loyalty"
                     name="loyalty"
                     onChange={this.handleChange}
-                    value={this.state.client.loyalty}
+                    value={loyalty}
                   >
                     <option value="none">Unavailable</option>
                     <option value="creditCard">Credit card</option>
                     <option value="mobileApp">Mobile app</option>
                   </select>
                 </div>
-                {this.state.client.loyalty === 'creditCard'
+                {loyalty === 'creditCard'
                   ? (
                     <div className="form-group">
                       <label htmlFor="client-card">Credit card number</label>
@@ -162,7 +165,7 @@ class Signup extends Component {
                         placeholder="xxxx xxxx xxxx xxxx"
                         name="creditCard"
                         id="client-card"
-                        value={this.state.client.creditCard}
+                        value={creditCard}
                         onChange={this.handleChange}
                         pattern="[0-9]{13,16}"
                       />
@@ -173,8 +176,8 @@ class Signup extends Component {
                 <button className="btn btn-primary btn-block" type="submit">Register client</button>
               </form>
               
-              <div className={`alert alert-success mt-3 ${this.state.validation.messageVisible ? 'show' : 'fade'}`}>
-                {this.state.validation.message}
+              <div className={`alert alert-success mt-3 ${messageVisible ? 'show' : 'fade'}`}>
+                {message}
                 <button
                   type="button"
                   className="close"

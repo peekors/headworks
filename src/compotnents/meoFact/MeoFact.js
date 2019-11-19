@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getMeoFact, getMeoFactError, getMeoFactPending } from '../../_reducers/reducers';
 import { fetchMeoFact } from './fetchMeoFact';
@@ -11,19 +10,16 @@ class MeoFact extends Component {
   }
 
   render() {
+    const {fetchMeoFact: fetchMeoFact1, fact} = this.props;
     return (
       <div className="alert alert-light mt-3">
         <h5>Meo fact</h5>
-        <p>{this.props.fact}</p>
-        <button className="btn btn-outline-secondary btn-sm btn-block" onClick={this.props.fetchMeoFact}>Want more</button>
+        <p>{fact}</p>
+        <button className="btn btn-outline-secondary btn-sm btn-block" onClick={fetchMeoFact1}>Want more</button>
       </div>
     );
   }
 }
-
-MeoFact.propTypes = {
-  
-};
 
 const mapStateToProps = state => {
   return {

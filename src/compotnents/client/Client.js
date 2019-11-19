@@ -1,15 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 const Client = props => {
+  const {date, lastName, firstName} = props.data;
   return (
     <tr>
-      <td>{`${props.data.firstName} ${props.data.lastName}`}</td>
-      <td>{props.data.date}</td>
+      <td>{`${firstName} ${lastName}`}</td>
+      <td>{date}</td>
     </tr>
   );
 };
-
-Client.propTypes = {};
 
 export default Client;
