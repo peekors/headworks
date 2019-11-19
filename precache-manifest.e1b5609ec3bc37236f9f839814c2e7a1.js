@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "945c2c83209a226c4f8bff0b2b5949b2",
+    "revision": "bd139280fa2d7e4649edd58b6d78eeee",
     "url": "/anisimovv/headworks/index.html"
   },
   {
-    "revision": "9a37a979a0d2239a5215",
+    "revision": "b4bfbb3744eb6b459f4d",
     "url": "/anisimovv/headworks/static/css/main.36497136.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/anisimovv/headworks/static/js/2.3fb79c3e.chunk.js"
   },
   {
-    "revision": "9a37a979a0d2239a5215",
-    "url": "/anisimovv/headworks/static/js/main.999f3fd8.chunk.js"
+    "revision": "b4bfbb3744eb6b459f4d",
+    "url": "/anisimovv/headworks/static/js/main.5fd10aa2.chunk.js"
   },
   {
     "revision": "7e405c630eba82a5a47f",
